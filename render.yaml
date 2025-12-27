@@ -1,0 +1,40 @@
+# Render Blueprint - Deploy both services
+# https://render.com/docs/blueprint-spec
+
+services:
+  # Backend API (FastAPI)
+  - type: web
+    name: branch-messaging-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: DATABASE_URL
+        value: sqlite+aiosqlite:///./branch_messaging.db
+    healthCheckPath: /health
+    plan: free
+
+  # Frontend (Next.js) - Optional: Can also deploy to Vercel
+  - type: web
+    name: branch-messaging-frontend
+    runtime: node
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          name: branch-messaging-api
+          type: web
+          property: host
+      - key: NEXT_PUBLIC_WS_URL
+        fromService:
+          name: branch-messaging-api
+          type: web
+          property: host
+    plan: free
