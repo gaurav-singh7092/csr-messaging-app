@@ -100,7 +100,7 @@ async def seed_initial_data():
             customer = Customer(name="John Smith", email="john@email.com", phone="+1234567890", account_status="active")
             session.add(customer)
             await session.flush()
-            conv = Conversation(customer_id=customer.id, agent_id=agents[0].id, status=MessageStatus.ACTIVE, priority=MessagePriority.MEDIUM, subject="General inquiry")
+            conv = Conversation(customer_id=customer.id, agent_id=agents[0].id, status=MessageStatus.OPEN, priority=MessagePriority.MEDIUM, subject="General inquiry")
             session.add(conv)
             await session.flush()
             msg = Message(conversation_id=conv.id, customer_id=customer.id, content="Hello, I have a question", is_from_customer=True, priority=MessagePriority.MEDIUM)
@@ -160,7 +160,7 @@ async def seed_initial_data():
             conv = Conversation(
                 customer_id=customer.id,
                 agent_id=assigned_agent.id,
-                status=MessageStatus.ACTIVE,
+                status=MessageStatus.OPEN,
                 priority=priority,
                 subject=first_msg
             )
