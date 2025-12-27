@@ -109,15 +109,15 @@ export default function CustomerSimulator() {
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Quick Sample Messages
           </label>
-          <div className="flex flex-col gap-1.5 max-h-32 overflow-y-auto">
+          <div className="flex flex-col gap-2 max-h-40 overflow-y-auto">
             {sampleMessages.map((sample, index) => (
               <button
                 key={index}
                 onClick={() => setMessage(sample)}
-                className="px-2 py-1.5 text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors text-left truncate"
+                className="px-3 py-2 text-xs bg-gray-100 hover:bg-green-100 hover:border-green-300 text-gray-700 rounded-lg transition-colors text-left border border-gray-200 leading-relaxed"
                 title={sample}
               >
-                {sample.slice(0, 40)}...
+                {sample.length > 60 ? `${sample.slice(0, 60)}...` : sample}
               </button>
             ))}
           </div>

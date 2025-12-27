@@ -200,7 +200,7 @@ function DashboardContent() {
                 agentId={selectedAgent.id}
                 onConversationUpdate={handleConversationUpdate}
               />
-              {selectedConversation.customer_id && (
+              {selectedConversation.customer_id && !showSimulator && (
                 <CustomerPanel customerId={selectedConversation.customer_id} />
               )}
             </>
