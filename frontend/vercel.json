@@ -5,10 +5,5 @@
       "src": "package.json",
       "use": "@vercel/next"
     }
-  ],
-  "routes": [],
-  "env": {
-    "NEXT_PUBLIC_API_URL": "@branch-api-url",
-    "NEXT_PUBLIC_WS_URL": "@branch-ws-url"
-  }
+  ]
 }
