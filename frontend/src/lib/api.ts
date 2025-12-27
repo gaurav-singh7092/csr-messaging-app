@@ -2,28 +2,28 @@
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 export const WS_BASE_URL = process.env.NEXT_PUBLIC_WS_URL || 'ws://localhost:8000';
 
-// API Endpoints
+// API Endpoints (with trailing slashes to avoid 307 redirects)
 export const API_ENDPOINTS = {
   // Agents
-  agents: `${API_BASE_URL}/api/agents`,
+  agents: `${API_BASE_URL}/api/agents/`,
   
   // Customers
-  customers: `${API_BASE_URL}/api/customers`,
+  customers: `${API_BASE_URL}/api/customers/`,
   
   // Conversations
-  conversations: `${API_BASE_URL}/api/conversations`,
-  conversationStats: `${API_BASE_URL}/api/conversations/stats`,
+  conversations: `${API_BASE_URL}/api/conversations/`,
+  conversationStats: `${API_BASE_URL}/api/conversations/stats/`,
   
   // Canned Messages
-  cannedMessages: `${API_BASE_URL}/api/canned-messages`,
-  cannedCategories: `${API_BASE_URL}/api/canned-messages/categories`,
+  cannedMessages: `${API_BASE_URL}/api/canned-messages/`,
+  cannedCategories: `${API_BASE_URL}/api/canned-messages/categories/`,
   
   // Search
-  search: `${API_BASE_URL}/api/search`,
-  searchSuggestions: `${API_BASE_URL}/api/search/suggestions`,
+  search: `${API_BASE_URL}/api/search/`,
+  searchSuggestions: `${API_BASE_URL}/api/search/suggestions/`,
   
   // External (for sending customer messages)
-  externalMessages: `${API_BASE_URL}/api/external/messages`,
+  externalMessages: `${API_BASE_URL}/api/external/messages/`,
   
   // WebSocket
   websocket: (agentId: number) => `${WS_BASE_URL}/ws?agent_id=${agentId}`,
