@@ -1,6 +1,6 @@
-# Branch Messaging Application
+# Customer Service Agents Messaging Application
 
-A full-featured customer messaging platform for Branch that enables agents to efficiently respond to customer inquiries with real-time messaging, priority detection, multi-agent collaboration, and smart features.
+A full-featured customer messaging platform that enables agents to efficiently respond to customer inquiries with real-time messaging, priority detection, multi-agent collaboration, and smart features.
 
 ## 🌟 Features
 
@@ -42,7 +42,7 @@ Messages are automatically classified based on keywords:
 ## 🏗️ Architecture
 
 ```
-branch-messaging-app/
+csr-messaging-app/
 ├── backend/                 # FastAPI Backend
 │   ├── app/
 │   │   ├── api/            # API routes
@@ -93,7 +93,7 @@ branch-messaging-app/
 
 1. **Navigate to the backend directory**:
    ```bash
-   cd branch-messaging-app/backend
+   cd csr-messaging-app/backend
    ```
 
 2. **Create a virtual environment**:
@@ -125,7 +125,7 @@ The API will be available at `http://localhost:8000`
 
 1. **Navigate to the frontend directory**:
    ```bash
-   cd branch-messaging-app/frontend
+   cd csr-messaging-app/frontend
    ```
 
 2. **Install dependencies**:
@@ -241,7 +241,7 @@ The application will be available at `http://localhost:3000`
 
 **Backend** (optional):
 ```bash
-DATABASE_URL=sqlite+aiosqlite:///./branch_messaging.db
+DATABASE_URL=sqlite+aiosqlite:///./csr_messaging.db
 ```
 
 **Frontend**:
